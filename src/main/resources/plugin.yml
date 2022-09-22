@@ -4,3 +4,5 @@ main: com.snowy.snowycosmetics.SnowyCosmetics
 api-version: 1.19
 authors: [ Snowyy ]
 description: Snowyy Cosmetics plugin ;3
+commands:
+  cosmetics:
