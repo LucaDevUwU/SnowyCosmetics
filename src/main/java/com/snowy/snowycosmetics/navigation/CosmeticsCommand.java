@@ -1,4 +1,4 @@
-package com.snowy.snowycosmetics;
+package com.snowy.snowycosmetics.navigation;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

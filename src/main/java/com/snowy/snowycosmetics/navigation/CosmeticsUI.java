@@ -1,4 +1,4 @@
-package com.snowy.snowycosmetics;
+package com.snowy.snowycosmetics.navigation;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

@@ -1,5 +1,7 @@
 package com.snowy.snowycosmetics;
 
+import com.snowy.snowycosmetics.navigation.CosmeticListener;
+import com.snowy.snowycosmetics.navigation.CosmeticsCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
