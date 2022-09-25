@@ -43,4 +43,6 @@ public class Hat extends Cosmetic {
     public void disable() {
         player.getInventory().setHelmet(null);
     }
+
+    public HatType getType() { return type; }
 }
