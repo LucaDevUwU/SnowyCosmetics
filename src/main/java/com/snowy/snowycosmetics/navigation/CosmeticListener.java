@@ -25,8 +25,9 @@ public class CosmeticListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
-
         Player player = (Player) e.getWhoClicked();
+        e.setCancelled(true);
+
         if (e.getInventory() != null && e.getCurrentItem() != null) {
             if (e.getView().getTitle().endsWith("Cosmetics Menu!")) {
                 if (e.getRawSlot() == 0) {

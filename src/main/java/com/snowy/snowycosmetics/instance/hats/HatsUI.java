@@ -24,7 +24,7 @@ public class HatsUI {
         List<HatType> active = new ArrayList<>();
         if (cosmetics.getActiveCosmetics().containsKey(player.getUniqueId())) {
             for (Cosmetic cosmetic : cosmetics.getActiveCosmetics().get(player.getUniqueId())) {
-                if (cosmetic instanceof Hat ) {
+                if (cosmetic instanceof Hat) {
                     active.add(((Hat) cosmetic).getType());
                     break;
                 }
