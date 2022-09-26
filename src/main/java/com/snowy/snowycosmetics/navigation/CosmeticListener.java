@@ -62,6 +62,7 @@ public class CosmeticListener implements Listener {
 
                 player.sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD + "You enabled " + type.getDisplay() + " hat!");
                 player.closeInventory();
+
             }
         }
     }

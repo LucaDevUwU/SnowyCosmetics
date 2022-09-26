@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class CosmeticsUI {
     public CosmeticsUI(Player player) {
-        Inventory inv = Bukkit.createInventory(null, 27, ChatColor.GOLD.toString() + ChatColor.BOLD + "Cosmetics Menu");
+        Inventory inv = Bukkit.createInventory(null, 27, ChatColor.GOLD.toString() + ChatColor.BOLD + "Cosmetics Menu!");
 
         ItemStack hats = new ItemStack(Material.DIAMOND_HELMET);
         ItemMeta hatsMeta = hats.getItemMeta();
