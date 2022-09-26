@@ -16,6 +16,7 @@ public class Hat extends Cosmetic {
     private HatType type;
     public Hat(SnowyCosmetics cosmetics, Player player, HatType type) {
         super(cosmetics, player);
+        this.type = type;
     }
 
     @Override

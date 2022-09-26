@@ -20,14 +20,14 @@ public enum HatType {
             "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q4MzU0ZDgwZTE5ZWFkOWI4ZmY5ZDk3YjEyNTllYTliYTc4Zjk1MzBmNzJkZDAwY2I0M2QyY2VhZmExYmMwNSJ9fX0=");
 
     private String display, headTexture;
-    private List<String> descrition;
+    private List<String> description;
     HatType(String display, List<String> description, String headTexture) {
         this.display = display;
-        this.descrition = description;
+        this.description = description;
         this.headTexture = headTexture;
     }
 
     public String getDisplay() { return display; }
-    public List<String> getDescription() { return descrition; }
+    public List<String> getDescription() { return description; }
     public String getHeadTexture() { return headTexture; }
 }

@@ -30,7 +30,7 @@ public class CosmeticListener implements Listener {
         if (e.getInventory() != null && e.getCurrentItem() != null) {
             if (e.getView().getTitle().endsWith("Cosmetics Menu!")) {
                 if (e.getRawSlot() == 0) {
-                    new HatsUI(cosmetics, (Player) e.getWhoClicked());
+                    new HatsUI(cosmetics, player);
                 }
             } else if (e.getView().getTitle().endsWith("Hats")) {
                 HatType type = HatType.valueOf(e.getCurrentItem().getItemMeta().getLocalizedName());
