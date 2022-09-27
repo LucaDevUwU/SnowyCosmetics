@@ -22,6 +22,14 @@ public class CosmeticsUI {
 
         inv.addItem(hats);
 
+        ItemStack trails = new ItemStack(Material.DIAMOND_HELMET);
+        ItemMeta trailsMeta = trails.getItemMeta();
+        trailsMeta.setDisplayName(ChatColor.RED.toString() + ChatColor.BOLD + "Trails");
+        trailsMeta.setLore(Arrays.asList(ChatColor.GRAY + "Spawn cool effects as you walk"));
+        trails.setItemMeta(trailsMeta);
+
+        inv.addItem(trails);
+
         player.openInventory(inv);
     }
 }

@@ -5,6 +5,9 @@ import com.snowy.snowycosmetics.instance.Cosmetic;
 import com.snowy.snowycosmetics.instance.hats.Hat;
 import com.snowy.snowycosmetics.instance.hats.HatType;
 import com.snowy.snowycosmetics.instance.hats.HatsUI;
+import com.snowy.snowycosmetics.instance.trails.Trail;
+import com.snowy.snowycosmetics.instance.trails.TrailType;
+import com.snowy.snowycosmetics.instance.trails.TrailsUI;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +35,39 @@ public class CosmeticListener implements Listener {
             if (e.getView().getTitle().endsWith("Cosmetics Menu!")) {
                 if (e.getRawSlot() == 0) {
                     new HatsUI(cosmetics, player);
+                } else if (e.getRawSlot() == 1) {
+                    new TrailsUI(cosmetics, player);
                 }
+            } else if (e.getView().getTitle().endsWith("Trails")) {
+                TrailType type = TrailType.valueOf(e.getCurrentItem().getItemMeta().getLocalizedName());
+
+                List<Cosmetic> active;
+                if (cosmetics.getActiveCosmetics().containsKey(player.getUniqueId())) {
+                    active = cosmetics.getActiveCosmetics().get(player.getUniqueId());
+                    Iterator<Cosmetic> itr = active.listIterator();
+                    while (itr.hasNext()) {
+                        Cosmetic cosmetic = itr.next();
+                        if (cosmetic instanceof Trail) {
+                            cosmetic.disable();
+                            itr.remove();
+
+                            if (((Trail) cosmetic).getType() == type) {
+                                player.sendMessage(ChatColor.RED + "You disabled " + type.getDisplay() + ".");
+                                player.closeInventory();
+                                return;
+                            }
+                        }
+                    }
+                } else {
+                    active = new ArrayList<>();
+                }
+                Trail trail = new Trail(cosmetics, player, type);
+                trail.enable();
+                active.add(trail);
+                cosmetics.getActiveCosmetics().put(player.getUniqueId(), active);
+
+                player.sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD + "You enabled " + type.getDisplay() + " !");
+                player.closeInventory();
             } else if (e.getView().getTitle().endsWith("Hats")) {
                 HatType type = HatType.valueOf(e.getCurrentItem().getItemMeta().getLocalizedName());
                 List<Cosmetic> active;
