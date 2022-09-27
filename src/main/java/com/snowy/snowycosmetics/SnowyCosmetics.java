@@ -18,6 +18,8 @@ public final class SnowyCosmetics extends JavaPlugin {
     public void onEnable() {
         getCommand("cosmetics").setExecutor(new CosmeticsCommand());
 
+        saveDefaultConfig();
+
         Bukkit.getPluginManager().registerEvents(new CosmeticListener(this), this);
     }
 

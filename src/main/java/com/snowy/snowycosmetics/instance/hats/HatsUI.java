@@ -31,6 +31,10 @@ public class HatsUI {
             }
         }
 
+
+
+        List<String> owned = cosmetics.getConfig().getStringList(player.getUniqueId().toString()) != null ? cosmetics.getConfig().getStringList(player.getUniqueId().toString()) : new ArrayList<>();
+
         for (HatType type : HatType.values()) {
             ItemStack is = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta meta = (SkullMeta) is.getItemMeta();
@@ -45,8 +49,11 @@ public class HatsUI {
                 e.printStackTrace();
                 return;
             }
-
-            meta.setDisplayName(type.getDisplay() + " " + (active.contains(type) ? ChatColor.RED + "[CLICK TO DISABLE]" : ChatColor.GREEN + "[CLICK TO ENABLE]"));
+            if (owned.contains(type.name())) {
+                meta.setDisplayName(type.getDisplay() + " " + (active.contains(type) ? ChatColor.RED + "[CLICK TO DISABLE]" : ChatColor.GREEN + "[CLICK TO ENABLE]"));
+            } else {
+                meta.setDisplayName(type.getDisplay());
+            }
             meta.setLore(type.getDescription());
             meta.setLocalizedName(type.name());
             is.setItemMeta(meta);

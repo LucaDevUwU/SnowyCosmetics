@@ -70,6 +70,14 @@ public class CosmeticListener implements Listener {
                 player.closeInventory();
             } else if (e.getView().getTitle().endsWith("Hats")) {
                 HatType type = HatType.valueOf(e.getCurrentItem().getItemMeta().getLocalizedName());
+
+                List<String> owned = cosmetics.getConfig().getStringList(player.getUniqueId().toString()) != null ? cosmetics.getConfig().getStringList(player.getUniqueId().toString()) : new ArrayList<>();
+                if (owned.contains(type.name())) {
+                    player.sendMessage(ChatColor.RED.toString() + ChatColor.BOLD + "You don't own the " + type.getDisplay() + " hat!");
+                    player.closeInventory();
+                    return;
+                }
+
                 List<Cosmetic> active;
                 if (cosmetics.getActiveCosmetics().containsKey(player.getUniqueId())) {
                     active = cosmetics.getActiveCosmetics().get(player.getUniqueId());
