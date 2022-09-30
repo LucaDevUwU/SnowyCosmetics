@@ -3,6 +3,7 @@ package com.snowy.snowycosmetics;
 import com.snowy.snowycosmetics.instance.Cosmetic;
 import com.snowy.snowycosmetics.navigation.CosmeticListener;
 import com.snowy.snowycosmetics.navigation.CosmeticsCommand;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,6 +18,7 @@ public final class SnowyCosmetics extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("cosmetics").setExecutor(new CosmeticsCommand());
+        Metrics metrics = new Metrics(this, 16533);
 
         saveDefaultConfig();
 
